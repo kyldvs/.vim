@@ -1,117 +1,86 @@
-" .vimrc
 
-
-
-" No compatibility
+" Turn off compatible (gets turned on with presence of .vimrc)
 set nocompatible
+
+
+" Initialize pathogen
+filetype off
+call pathogen#infect()
+
+
+" Set encoding
 set encoding=utf-8
 
 
+" Detect filetypes
+filetype plugin on
+
 
 " Syntax highlighting
+syntax on
 
-" Detect filetype
-filetype plugin on
-" Enable syntax highighting
-syntax enable
-" 256 colours, please
-set t_Co=256
-" Dark solarized scheme
+
+" Set color scheme
 set background=dark
 colorscheme solarized
 
 
-
-" Set relevant filetypes
-au BufRead,BufNewFile *.scss set filetype=css
-au BufRead,BufNewFile *.md set filetype=markdown
-
-
-
-" Tabs, indentation and lines
-
+" Tab preferences, 2 spaces
 filetype plugin indent on
-" 4 spaces please
 set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-" Round indent to nearest multiple of 4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+" Round indent to nearest multiple of 2
 set shiftround
-" No line-wrapping
+" No line wrapping
 set nowrap
 
 
-
-" Interactions
-
-" Start scrolling slightly before the cursor reaches an edge
+" Scroll a little before you hit an edge
 set scrolloff=3
 set sidescrolloff=5
-" Scroll sideways a character at a time, rather than a screen at a time
+" Scroll sideways 1 character at a time rather than 1 screen at a time
 set sidescroll=1
-" Allow motions and back-spacing over line-endings etc
+
+
+" Allow motions and back-spacing over line endings
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
-" Underscores denote words
-set iskeyword-=_
 
 
-
-" Visual decorations
-
-" Show status line
+" Show a bunch of status information
 set laststatus=2
-" Show what mode you’re currently in
 set showmode
-" Show what commands you’re typing
 set showcmd
-" Allow modelines
 set modeline
-" Show current line and column position in file
 set ruler
-" Show file title in terminal tab
 set title
-" Set relative line numbers if we can...
+
+
+" Attempt to set relative numbers, otherwise default to normal line numbers
 if exists("+relativenumber")
-    " Due to a problem with relative line numbers not persisting across new
-    " tabs and splits, set no line numbers at all...
-    set nonumber
-    " ..then set relative ones.
-    set relativenumber
-" ...otherwise let’s just have regular ones.
+  set nonumber
+  set relativenumber
 else
-    set number
+  set number
 endif
-" Limit line-length to 80 columns by highlighting col 81 onward
+
+
+" Set a ruler at line 81
 if exists("+colorcolumn")
-    set colorcolumn=81
+  set colorcolumn=81
 endif
-" Highlight current line
+
+
+" Highlight cursor line
 set cursorline
-" Don’t keep results highlighted after searching...
+
+
+" Highlight searches as we type, and use smartcase when searching
 set nohlsearch
-" ...just highlight as we type
 set incsearch
-" Ignore case when searching...
 set ignorecase
-" ...except if we input a capital letter
 set smartcase
 
 
-
-" Key mappings
-
-" jj to throw you into normal mode from insert mode
-inoremap jj <esc>
-" jk to throw you into normal mode from insert mode
-inoremap jk <esc>
-" Disable arrow keys (hardcore)
-map  <up>    <nop>
-imap <up>    <nop>
-map  <down>  <nop>
-imap <down>  <nop>
-map  <left>  <nop>
-imap <left>  <nop>
-map  <right> <nop>
-imap <right> <nop>
