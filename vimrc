@@ -3,13 +3,20 @@
 set nocompatible
 filetype off
 
+
 " Initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+
+" Neocomplete only works with lua
+if has("lua")
+  Plugin 'Shougo/neocomplete.vim'
+else
+  echo "This vim does not have lua, neocomplete will not work"
+endif
 
 
 " End vundle and turn filtype back on
@@ -23,6 +30,13 @@ set encoding=utf-8
 
 " Syntax highlighting
 syntax on
+
+
+" Source autocomplete settings
+if has("lua")
+  source ~/.vim/sources/neocomplete.conf
+endif
+
 
 
 " Set color scheme
