@@ -1,19 +1,24 @@
 
 " Turn off compatible (gets turned on with presence of .vimrc)
 set nocompatible
-
-
-" Initialize pathogen
 filetype off
-call pathogen#infect()
+
+" Initialize Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+
+
+" End vundle and turn filtype back on
+call vundle#end()
+filetype plugin indent on
 
 
 " Set encoding
 set encoding=utf-8
-
-
-" Detect filetypes
-filetype plugin on
 
 
 " Syntax highlighting
@@ -26,7 +31,6 @@ colorscheme solarized
 
 
 " Tab preferences, 2 spaces
-filetype plugin indent on
 set expandtab
 set shiftwidth=2
 set tabstop=2
