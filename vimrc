@@ -36,7 +36,7 @@ colorscheme solarized
 
 " Set color scheme of lightline
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'jellybeans',
   \ }
 
 
