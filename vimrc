@@ -14,6 +14,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
 
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
 
 
 " End vundle and turn filtype back on
@@ -30,8 +31,7 @@ syntax on
 
 
 " Set color scheme
-set background=dark
-colorscheme solarized
+colorscheme jellybeans
 
 
 " Set color scheme of lightline
