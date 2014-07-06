@@ -9,8 +9,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'itchyny/lightline.vim'
+
+Plugin 'altercation/vim-colors-solarized'
 
 
 " End vundle and turn filtype back on
@@ -29,6 +32,12 @@ syntax on
 " Set color scheme
 set background=dark
 colorscheme solarized
+
+
+" Set color scheme of lightline
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ }
 
 
 " Tab preferences, 2 spaces
@@ -88,4 +97,12 @@ set incsearch
 set ignorecase
 set smartcase
 
+
+" Setup ctrlp, let it search for dotfiles
+let g:ctrlp_dotfiles = 1
+
+
+" Remap <esc> to jj or jk in insert mode
+inoremap jj <esc>
+inoremap jk <esc>
 
